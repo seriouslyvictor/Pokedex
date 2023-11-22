@@ -44,8 +44,8 @@ const todosPokemons = [
     specialDef: 66,
     speed: 88,
     colores: {
-        primaria: "#FAD961",
-        secundaria: "#F76B1C",
+        primaria: "#ef473a",
+        secundaria: "#cb2d3e",
     }
   }
 ];
@@ -54,7 +54,7 @@ const timeAtual = [];
 
 
 const criarCard = (pokemon) => {
-    const estiloGradient = `background-image: radial-gradient(${pokemon.colores.primaria} 0%, ${pokemon.colores.secundaria} 100%)`
+    const estiloGradient = `background-image: radial-gradient(${pokemon.colores.secundaria} 0%, ${pokemon.colores.primaria} 100%)`
     const fillColor = `background-color: ${pokemon.colores.primaria}`
     return `<article class="card" style="${estiloGradient}">
     <header>
@@ -115,7 +115,7 @@ const criarCard = (pokemon) => {
 
 const carregarCards = () => {
     for (const pokemon of todosPokemons) {
-        container.insertAdjacentHTML("afterbegin", criarCard(pokemon))
+        container.insertAdjacentHTML("beforeend", criarCard(pokemon))
     }
     }
 
@@ -132,3 +132,4 @@ const adicionarPokemon = (nomePokemon) => {
 adicionarPokemon(todosPokemons[0]);
 
 // const addBtn = document.querySelectorAll(".bn632-hover");
+carregarCards()
